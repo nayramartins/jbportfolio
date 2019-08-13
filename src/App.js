@@ -1,12 +1,12 @@
 import React from 'react'
 import { Router, Route } from 'react-router'
 
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/react-hooks'
 import { PrismicLink } from 'apollo-link-prismic'
 import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory'
 import ApolloClient from 'apollo-client'
 import { createBrowserHistory } from 'history'
-import introspectionResult from './introspection-result';
+import introspectionResult from './fragmentTypes'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -14,17 +14,17 @@ import Home from './layouts/Home'
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData: introspectionResult,
-});
+})
 
 const cache = new InMemoryCache({
   fragmentMatcher,
-});
+})
 
 const client = new ApolloClient({
   link: PrismicLink({
     uri: 'https://julianabezerra.prismic.io/graphql',
   }),
-  cache: new InMemoryCache({ cache })
+  cache
 })
 
 const history = createBrowserHistory()
@@ -43,7 +43,7 @@ function App() {
 
       </ApolloProvider>
     </div>
-  );
+  )
 }
 
 export default App
