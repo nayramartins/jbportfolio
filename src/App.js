@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Router, Route } from 'react-router'
+
+import { ApolloProvider } from '@apollo/react-hooks';
+import { PrismicLink } from 'apollo-link-prismic'
+import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory'
+import ApolloClient from 'apollo-client'
+import { createBrowserHistory } from 'history'
+import introspectionResult from './introspection-result';
+
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './layouts/Home'
+
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: introspectionResult,
+});
+
+const cache = new InMemoryCache({
+  fragmentMatcher,
+});
+
+const client = new ApolloClient({
+  link: PrismicLink({
+    uri: 'https://julianabezerra.prismic.io/graphql',
+  }),
+  cache: new InMemoryCache({ cache })
+})
+
+const history = createBrowserHistory()
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ApolloProvider client={client}>
+        <Header />
+        <Router history={history}>
+          <Route exact path="/" component={Home} />
+        </Router>
+        {/* <Route path="/about" component={About} />
+        <Route path="/topics" component={Topics} /> */}
+        <Footer />
+
+      </ApolloProvider>
     </div>
   );
 }
 
-export default App;
+export default App
