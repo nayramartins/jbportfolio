@@ -4,17 +4,15 @@ import { useQuery } from '@apollo/react-hooks'
 import singleContent from './Single.query'
 
 import ProjectTitle from '../../components/ProjectTitle'
-import TextBlock from '../../components/TextBlock'
 
 function Single() {
-  const { loading, error, data } = useQuery(singleContent)
+  const { loading, data } = useQuery(singleContent)
   if (loading) return (
     <div></div>
   )
-  console.log(data)
   return (
     <section>
-      <ProjectTitle />
+      <ProjectTitle data={data.allPages.edges[0].node.body[0].primary} />
     </section>
   )
 }

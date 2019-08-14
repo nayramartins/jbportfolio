@@ -11,6 +11,7 @@ import introspectionResult from './fragmentTypes'
 import Menu from './layouts/Menu'
 import Home from './layouts/Home'
 import Projects from './layouts/Projects'
+import Single from './layouts/Single'
 import Footer from './components/Footer'
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
@@ -37,7 +38,7 @@ function App() {
         <Menu />
         <Router history={history}>
           <Route exact path="/" component={Home} />
-          {/* <Route path={pageUrl} component={Single} /> */}
+          <Route path="/sobre" component={Single} />
           <Route path="/projetos" component={Projects} />
         </Router>
         <Footer />

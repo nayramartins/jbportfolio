@@ -9,7 +9,7 @@ function ProjectTitle({ data }) {
         <h1 className="project-title">{data.title[0].text}</h1>
       </div>
       <div>
-        <h2 className="project-about">{data.subtitle[0].text}</h2>
+        <h2 className="project-about">{data.subtitle && data.subtitle[0].text}</h2>
       </div>
     </section>
   )

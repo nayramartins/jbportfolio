@@ -16,15 +16,6 @@ export default gql`
                 image
               }
             }
-            ... on PageBodyHero_banner {
-              type
-              label
-              primary {
-                banner_title
-                banner_text
-                banner_image
-              }
-            }
             ... on PageBodyText {
               type
               label
