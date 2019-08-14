@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './Header.sass'
 
-function Header() {
+function Header({ data }) {
   const [menuStatus, setMenuStatus] = useState(false)
   return (
-    <header className="header">
+    <div className="header">
       <div className="header-container">
           <button className={`menu-mobile ${menuStatus ? 'close-menu' : ''}`} onClick={() => setMenuStatus(!menuStatus)}>
             <span></span>
@@ -15,12 +15,14 @@ function Header() {
           <nav className={`menu-items ${menuStatus ? 'active' : ''}`}>
             <div>
               <ul>
-                <li><a href="#">Sobre</a></li>
+                {
+                  data.map((item, index) => <li key={index}><a href={item.primary.link._meta.uid}>{item.primary.label[0].text}</a></li>)
+                }
               </ul>
             </div>
           </nav>
       </div>
-    </header>
+    </div>
   )
 }
 

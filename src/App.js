@@ -8,9 +8,10 @@ import ApolloClient from 'apollo-client'
 import { createBrowserHistory } from 'history'
 import introspectionResult from './fragmentTypes'
 
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Menu from './layouts/Menu'
 import Home from './layouts/Home'
+import Projects from './layouts/Projects'
+import Footer from './components/Footer'
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData: introspectionResult,
@@ -33,12 +34,12 @@ function App() {
   return (
     <div>
       <ApolloProvider client={client}>
-        <Header />
+        <Menu />
         <Router history={history}>
           <Route exact path="/" component={Home} />
+          {/* <Route path={pageUrl} component={Single} /> */}
+          <Route path="/projetos" component={Projects} />
         </Router>
-        {/* <Route path="/about" component={About} />
-        <Route path="/topics" component={Topics} /> */}
         <Footer />
 
       </ApolloProvider>

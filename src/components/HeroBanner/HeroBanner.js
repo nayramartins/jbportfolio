@@ -1,16 +1,22 @@
 import React from 'react'
+import { RichText } from 'prismic-reactjs'
+
 import './HeroBanner.sass'
 
-function HeroBanner() {
+function HeroBanner({ data }) {
   return (
     <section className="hero-banner container">
       <div className="hero-banner__image">
-        <img src="http://julianabezerra.com.br/wp-content/uploads/2017/04/banner_home.jpg" />
+        <img src={data.banner_image.url} alt={data.banner_image.alt} />
       </div>
       <div className="hero-banner__text">
-        <h2 className="title"> Estratégias <span>verbais</span> </h2>
-        <p>Com a palavra, a sua marca. A forma como uma marca se apresenta e fala com o seu público pode dizer muito sobre ela. Tom de voz, tempos verbais e até mesmo o uso de expressões são escolhas que devem ser pensadas estrategicamente.  </p>
-      </div>
+        <div className="hero-banner__text--title">
+          {RichText.render(data.banner_title)}
+        </div>
+        <div className="hero-banner__text--content">
+          {RichText.render(data.banner_text)}
+        </div>
+       </div>
     </section>
   )
 }

@@ -1,13 +1,13 @@
 import { gql } from 'apollo-boost'
 
-export default gql`
-  query allPages {
-    allPages {
+export const TITLE_QUERY = gql`
+ query allProjects_pages {
+    allProjects_pages {
       edges {
         node {
           body {
             __typename
-            ... on PageBodyProject_title {
+            ... on Projects_pageBodyProject_title {
               type
               label
               primary {
@@ -16,20 +16,29 @@ export default gql`
                 image
               }
             }
-            ... on PageBodyHero_banner {
+          }
+        }
+      }
+    }
+  }
+`
+
+export const PROJECTS_QUERY = gql`
+  query allProjectPages {
+    allProject_pages {
+      edges {
+        node {
+          _meta {
+            uid
+          }
+          body {
+            ...on Project_pageBodyProject_title {
               type
               label
               primary {
-                banner_title
-                banner_text
-                banner_image
-              }
-            }
-            ... on PageBodyText {
-              type
-              label
-              primary {
-                text
+                title
+                subtitle
+                image
               }
             }
           }
