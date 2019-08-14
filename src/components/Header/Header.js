@@ -11,7 +11,7 @@ function Header({ data }) {
             <span></span>
             <span></span>
           </button>
-          <h1 className="menu-brand"><a href="#">Juliana Bezerra | Identidade Verbal</a></h1>
+          <h1 className="menu-brand"><a href="/">Juliana Bezerra | Identidade Verbal</a></h1>
           <nav className={`menu-items ${menuStatus ? 'active' : ''}`}>
             <div>
               <ul>

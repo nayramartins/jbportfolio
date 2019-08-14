@@ -2,6 +2,7 @@ import React from 'react'
 import './Thumbnail.sass'
 
 function Thumbnail({ data }) {
+  console.log(data)
   const thumbnailImage = data.node.body[0].primary
   const thumbnailLink = data.node._meta.uid
 

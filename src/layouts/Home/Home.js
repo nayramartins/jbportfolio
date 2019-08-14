@@ -5,10 +5,9 @@ import homeContent from './Home.query'
 
 import HeroBanner from '../../components/HeroBanner'
 import TextBlock from '../../components/TextBlock'
-import Thumbnail from '../../components/Thumbnail'
 
 function Home(props) {
-  const { loading, error, data } = useQuery(homeContent)
+  const { loading, data } = useQuery(homeContent)
   if (loading) return (
     <div></div>
   )
@@ -16,7 +15,6 @@ function Home(props) {
     <section className="home-page">
       <HeroBanner data={data.allHome_pages.edges[0].node.body[0].primary} />
       <TextBlock data={data.allHome_pages.edges[0].node.body[1].primary} />
-      <Thumbnail />
     </section>
   )
 }

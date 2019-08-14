@@ -6,7 +6,7 @@ import menuContent from './Menu.query'
 import Header from '../../components/Header'
 
 function Menu() {
-  const { loading, error, data } = useQuery(menuContent)
+  const { loading, data } = useQuery(menuContent)
   if (loading) return (
     <div></div>
   )
