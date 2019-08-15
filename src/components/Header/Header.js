@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Header.sass'
 
 function Header({ data }) {
@@ -16,7 +17,7 @@ function Header({ data }) {
             <div>
               <ul>
                 {
-                  data.map((item, index) => <li key={index}><a href={item.primary.link._meta.uid}>{item.primary.label[0].text}</a></li>)
+                  data.map((item, index) => <li key={index}><Link to={`/${item.primary.link._meta.uid}`}>{item.primary.label[0].text}</Link></li>)
                 }
               </ul>
             </div>

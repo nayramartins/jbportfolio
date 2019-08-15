@@ -12,6 +12,7 @@ import Menu from './layouts/Menu'
 import Home from './layouts/Home'
 import Projects from './layouts/Projects'
 import Single from './layouts/Single'
+import SingleProject from './layouts/SingleProject'
 import Footer from './components/Footer'
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
@@ -33,18 +34,19 @@ const history = createBrowserHistory()
 
 function App() {
   return (
-    <div>
-      <ApolloProvider client={client}>
-        <Menu />
-        <Router history={history}>
-          <Route exact path="/" component={Home} />
-          <Route path="/sobre" component={Single} />
-          <Route path="/projetos" component={Projects} />
-        </Router>
-        <Footer />
+    <Router history={history}>
+      <div>
+        <ApolloProvider client={client}>
+          <Menu />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/sobre" component={Single} />
+            <Route exact path="/projetos" component={Projects} />
+            <Route path="/projetos/:projeto" component={SingleProject} />
+          <Footer />
 
-      </ApolloProvider>
-    </div>
+        </ApolloProvider>
+      </div>
+    </Router>
   )
 }
 

@@ -1,13 +1,13 @@
 import { gql } from 'apollo-boost'
 
 export default gql`
-  query allPages {
-    allPages {
+  query allProject_pages($uid: String) {
+    allProject_pages(uid: $uid) {
       edges {
         node {
           body {
             __typename
-            ... on PageBodyProject_title {
+            ... on Project_pageBodyProject_title {
               type
               label
               primary {
@@ -16,18 +16,26 @@ export default gql`
                 image
               }
             }
-            ... on PageBodyText {
+            ... on Project_pageBodyText {
               type
               label
               primary {
                 text
               }
             }
-            ... on PageBodyImage {
+            ... on Project_pageBodyImage {
               type
               label
               primary {
                 image
+              }
+            }
+            ... on Project_pageBodyImage_gallery {
+              type
+              label
+              fields {
+                image_captions
+                gallery_image
               }
             }
           }
