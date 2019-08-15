@@ -1,6 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { withRouter } from "react-router"
+import { withRouter } from 'react-router'
 
 import singleProjectContent from './SingleProject.query'
 
@@ -11,7 +11,7 @@ import SingleImage from '../../components/SingleImage'
 function SingleProject(props) {
   const { loading, data } = useQuery(singleProjectContent, {
     variables: {
-      uid: props.match.params.projeto
+      uid: props.match.params.project
     }
   })
   console.log(props)

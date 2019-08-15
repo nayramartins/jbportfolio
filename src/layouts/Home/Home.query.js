@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost'
 
 export default gql`
-  {
+  query allHome_pages {
     allHome_pages {
       edges {
         node {
@@ -13,6 +13,7 @@ export default gql`
                 banner_title
                 banner_text
                 banner_image
+                subtitle
               }
             }
             ... on Home_pageBodyText {

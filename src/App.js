@@ -39,9 +39,13 @@ function App() {
         <ApolloProvider client={client}>
           <Menu />
             <Route exact path="/" component={Home} />
-            <Route exact path="/sobre" component={Single} />
-            <Route exact path="/projetos" component={Projects} />
-            <Route path="/projetos/:projeto" component={SingleProject} />
+            <Route exact path="/:project"  render={({ match }) => {
+              if(match.params.project !== 'projetos') {
+                return <Route path="/:page" component={Single} />
+              }
+              return <Route path="/projetos" component={Projects} />
+            }}/>
+            <Route path="/projetos/:project" component={SingleProject} />
           <Footer />
 
         </ApolloProvider>

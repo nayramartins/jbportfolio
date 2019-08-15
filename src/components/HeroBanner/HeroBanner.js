@@ -17,6 +17,11 @@ function HeroBanner({ data }) {
           {RichText.render(data.banner_text)}
         </div>
        </div>
+       <div>
+          <div className="hero-banner__subtitle">
+            {RichText.render(data.subtitle)}
+          </div>
+        </div>
     </section>
   )
 }

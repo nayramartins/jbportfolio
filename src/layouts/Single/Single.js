@@ -1,14 +1,18 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
+import { withRouter } from 'react-router'
 
 import singleContent from './Single.query'
 
 import ProjectTitle from '../../components/ProjectTitle'
 import Slices from '../../components/Slices'
 
-function Single() {
-  const { loading, data } = useQuery(singleContent)
-
+function Single(props) {
+  const { loading, data } = useQuery(singleContent, {
+    variables: {
+      uid: props.match.params.page
+    }
+  })
   if (loading) return (
     <div></div>
   )
@@ -23,4 +27,4 @@ function Single() {
   )
 }
 
-export default Single
+export default withRouter(Single)

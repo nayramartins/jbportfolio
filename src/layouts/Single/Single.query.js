@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost'
 
 export default gql`
-  query allPages {
-    allPages {
+  query allPages($uid: String) {
+    allPages(uid: $uid) {
       edges {
         node {
           body {
