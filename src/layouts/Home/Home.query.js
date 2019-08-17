@@ -13,7 +13,7 @@ export default gql`
                 banner_title
                 banner_text
                 banner_image
-                subtitle
+                banner_subtitle
               }
             }
             ... on Home_pageBodyText {
