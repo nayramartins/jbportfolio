@@ -12,7 +12,11 @@ function Slices({ slices }) {
 
         case 'image':
           return <SingleImage data={slice.primary} key={index} />
+
+        default:
       }
+
+      return ''
     })
   )
 }

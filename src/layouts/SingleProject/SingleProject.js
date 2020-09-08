@@ -31,8 +31,9 @@ function SingleProject(props) {
 
             case 'image':
               return <SingleImage data={value.primary} key={index} />
+            default:
           }
-
+          return ''
         })
       }
     </section>

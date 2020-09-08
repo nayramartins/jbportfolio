@@ -13,7 +13,6 @@ export default gql`
               primary {
                 title
                 subtitle
-                image
               }
             }
             ... on PageBodyText {

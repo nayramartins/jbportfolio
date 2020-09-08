@@ -17,6 +17,8 @@ function Single(props) {
     <div></div>
   )
 
+  console.log(data)
+
   return (
     <section>
       <ProjectTitle data={data.allPages.edges[0].node.body[0].primary} />
