@@ -4,6 +4,7 @@ import './Header.sass'
 
 function Header({ data }) {
   const [menuStatus, setMenuStatus] = useState(false)
+  console.log(data)
   return (
     <div className="header">
       <div className="header-container">
@@ -17,7 +18,7 @@ function Header({ data }) {
             <div>
               <ul>
                 {
-                  data.map((item, index) => <li key={index}><Link to={`/${item.primary.link._meta.uid}`}>{item.primary.label[0].text}</Link></li>)
+                  data.map((item, index) => <li key={index}><Link to={`/${item.primary ? item.primary.link._meta.uid : '/'}`}>{item.text}</Link></li>)
                 }
               </ul>
             </div>

@@ -12,7 +12,7 @@ function Menu() {
   )
   return (
     <header>
-      <Header data={data.allMenus.edges[0].node.body} />
+      <Header data={data.allMenus.edges[0].node.items} />
     </header>
   )
 }
