@@ -17,7 +17,7 @@ function Header({ data }) {
             <div>
               <ul>
                 {
-                  data.map((item, index) => <li key={index}><Link to={`/${item.link ? item.link._meta.uid : '/'}`}>{item.text}</Link></li>)
+                  data.map((item, index) => <li key={index}><Link to={`/${item.link ? item.link._meta.uid : 'projetos'}`}>{item.text}</Link></li>)
                 }
               </ul>
             </div>
